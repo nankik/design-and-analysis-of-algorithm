@@ -1,14 +1,12 @@
 def heap_sort(l):
       for i in range(len(l)-1,0,-1):      #total iterations
-            for j in range(i):             #max heap
-                  left=2*j+1
-                  right=left+1
-                  if left <i:                  #left child
-                        if l[j]<l[left]:
-                              l[j],l[left]=l[left],l[j]
-                  if right < i:              #right child
-                        if l[j]<l[right]:
-                              l[j],l[right]=l[right],l[j]
+            for j in range(i,0,-1):             #max heap
+                  if j%2==0:
+                        parent=int(j/2)-1
+                  else:
+                        parent=int(j/2)
+                  if l[parent]<l[j]:
+                              l[j],l[parent]=l[parent],l[j]
             print ("max heap=",l[0:i+1])
             l[0],l[i]=l[i],l[0]
 length=int(input("Enter number of elements: "))
