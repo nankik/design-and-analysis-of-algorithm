@@ -1,0 +1,19 @@
+def heap_sort(l):
+      for i in range(len(l)-1,0,-1):      #total iterations
+            for j in range(i):             #max heap
+                  left=2*j+1
+                  right=left+1
+                  if left <i:                  #left child
+                        if l[j]<l[left]:
+                              l[j],l[left]=l[left],l[j]
+                  if right < i:              #right child
+                        if l[j]<l[right]:
+                              l[j],l[right]=l[right],l[j]
+            print ("max heap=",l[0:i+1])
+            l[0],l[i]=l[i],l[0]
+length=int(input("Enter number of elements: "))
+l=[]
+for i in range(length):
+      l.append(int(input("Enter an element: ")))                 
+heap_sort(l)     
+print(l)                   
